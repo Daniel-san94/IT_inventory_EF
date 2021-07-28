@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Selfdev_reportingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TE_Gepek">
+          <Key>
+            <PropertyRef Name="nid" />
+          </Key>
+          <Property Name="nid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Computer name" Type="varchar" MaxLength="50" />
+          <Property Name="Device manufacturer" Type="varchar" MaxLength="50" />
+          <Property Name="Device model" Type="varchar" MaxLength="50" />
+          <Property Name="Serial number" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TE_Helysegek">
+          <Key>
+            <PropertyRef Name="Helyseg_Azon" />
+          </Key>
+          <Property Name="Helyseg_Azon" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Helyseg_Nev" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TE_Leltar">
+          <Key>
+            <PropertyRef Name="nid" />
+          </Key>
+          <Property Name="nid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nev" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Hely" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Felhasznalo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Csoport" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Statusz" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Tipusok" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Gyarto" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Modell" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sorozatszam" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Leltari_Szam" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Selfdev_reporting.dbo.AD_Users' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AD_Users">
+          <Key>
+            <PropertyRef Name="EDMXID" />
+          </Key>
+          <Property Name="EDMXID" Type="int" Nullable="false" />
+          <Property Name="sAMAccountName" Type="nvarchar" MaxLength="4000" />
+          <Property Name="sn" Type="nvarchar" MaxLength="4000" />
+          <Property Name="cn" Type="nvarchar" MaxLength="4000" />
+          <Property Name="givenName" Type="nvarchar" MaxLength="4000" />
+          <Property Name="title" Type="nvarchar" MaxLength="4000" />
+          <Property Name="displayName" Type="nvarchar" MaxLength="4000" />
+          <Property Name="physicalDeliveryOfficeName" Type="nvarchar" MaxLength="4000" />
+          <Property Name="objectGUID" Type="varbinary" MaxLength="4000" />
+          <Property Name="objectSid" Type="varbinary" MaxLength="4000" />
+        </EntityType>
+        <EntityContainer Name="Selfdev_reportingModelStoreContainer">
+          <EntitySet Name="TE_Gepek" EntityType="Self.TE_Gepek" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TE_Helysegek" EntityType="Self.TE_Helysegek" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TE_Leltar" EntityType="Self.TE_Leltar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AD_Users" EntityType="Self.AD_Users" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AD_Users].[EDMXID] AS [EDMXID], 
+    [AD_Users].[sAMAccountName] AS [sAMAccountName], 
+    [AD_Users].[sn] AS [sn], 
+    [AD_Users].[cn] AS [cn], 
+    [AD_Users].[givenName] AS [givenName], 
+    [AD_Users].[title] AS [title], 
+    [AD_Users].[displayName] AS [displayName], 
+    [AD_Users].[physicalDeliveryOfficeName] AS [physicalDeliveryOfficeName], 
+    [AD_Users].[objectGUID] AS [objectGUID], 
+    [AD_Users].[objectSid] AS [objectSid]
+    FROM [dbo].[AD_Users] AS [AD_Users]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="edm_IT_Inventory" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TE_Leltar">
+          <Key>
+            <PropertyRef Name="nid" />
+          </Key>
+          <Property Name="nid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nev" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Hely" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Felhasznalo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Csoport" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Statusz" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Tipusok" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Gyarto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Modell" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Sorozatszam" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Leltari_Szam" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="cnIT_Inventory" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TE_Leltar" EntityType="Self.TE_Leltar" />
+          <EntitySet Name="AD_Users" EntityType="edm_IT_Inventory.AD_Users" />
+          <EntitySet Name="TE_Gepek" EntityType="edm_IT_Inventory.TE_Gepek" />
+          <EntitySet Name="TE_Helysegek" EntityType="edm_IT_Inventory.TE_Helysegek" />
+        </EntityContainer>
+        <EntityType Name="AD_Users">
+          <Key>
+            <PropertyRef Name="EDMXID" />
+          </Key>
+          <Property Name="EDMXID" Type="Int32" Nullable="false" />
+          <Property Name="sAMAccountName" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="sn" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="cn" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="givenName" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="title" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="displayName" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="physicalDeliveryOfficeName" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="objectGUID" Type="Binary" MaxLength="4000" FixedLength="false" />
+          <Property Name="objectSid" Type="Binary" MaxLength="4000" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TE_Gepek">
+          <Key>
+            <PropertyRef Name="nid" />
+          </Key>
+          <Property Name="nid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Computer_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Device_manufacturer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Device_model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Serial_number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TE_Helysegek">
+          <Key>
+            <PropertyRef Name="Helyseg_Azon" />
+          </Key>
+          <Property Name="Helyseg_Azon" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Helyseg_Nev" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Selfdev_reportingModelStoreContainer" CdmEntityContainer="cnIT_Inventory">
+          <EntitySetMapping Name="TE_Leltar">
+            <EntityTypeMapping TypeName="edm_IT_Inventory.TE_Leltar">
+              <MappingFragment StoreEntitySet="TE_Leltar">
+                <ScalarProperty Name="nid" ColumnName="nid" />
+                <ScalarProperty Name="Nev" ColumnName="Nev" />
+                <ScalarProperty Name="Hely" ColumnName="Hely" />
+                <ScalarProperty Name="Felhasznalo" ColumnName="Felhasznalo" />
+                <ScalarProperty Name="Csoport" ColumnName="Csoport" />
+                <ScalarProperty Name="Statusz" ColumnName="Statusz" />
+                <ScalarProperty Name="Tipusok" ColumnName="Tipusok" />
+                <ScalarProperty Name="Gyarto" ColumnName="Gyarto" />
+                <ScalarProperty Name="Modell" ColumnName="Modell" />
+                <ScalarProperty Name="Sorozatszam" ColumnName="Sorozatszam" />
+                <ScalarProperty Name="Leltari_Szam" ColumnName="Leltari_Szam" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AD_Users">
+            <EntityTypeMapping TypeName="edm_IT_Inventory.AD_Users">
+              <MappingFragment StoreEntitySet="AD_Users">
+                <ScalarProperty Name="objectSid" ColumnName="objectSid" />
+                <ScalarProperty Name="objectGUID" ColumnName="objectGUID" />
+                <ScalarProperty Name="physicalDeliveryOfficeName" ColumnName="physicalDeliveryOfficeName" />
+                <ScalarProperty Name="displayName" ColumnName="displayName" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="givenName" ColumnName="givenName" />
+                <ScalarProperty Name="cn" ColumnName="cn" />
+                <ScalarProperty Name="sn" ColumnName="sn" />
+                <ScalarProperty Name="sAMAccountName" ColumnName="sAMAccountName" />
+                <ScalarProperty Name="EDMXID" ColumnName="EDMXID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TE_Gepek">
+            <EntityTypeMapping TypeName="edm_IT_Inventory.TE_Gepek">
+              <MappingFragment StoreEntitySet="TE_Gepek">
+                <ScalarProperty Name="Serial_number" ColumnName="Serial number" />
+                <ScalarProperty Name="Device_model" ColumnName="Device model" />
+                <ScalarProperty Name="Device_manufacturer" ColumnName="Device manufacturer" />
+                <ScalarProperty Name="Computer_name" ColumnName="Computer name" />
+                <ScalarProperty Name="nid" ColumnName="nid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TE_Helysegek">
+            <EntityTypeMapping TypeName="edm_IT_Inventory.TE_Helysegek">
+              <MappingFragment StoreEntitySet="TE_Helysegek">
+                <ScalarProperty Name="Helyseg_Nev" ColumnName="Helyseg_Nev" />
+                <ScalarProperty Name="Helyseg_Azon" ColumnName="Helyseg_Azon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

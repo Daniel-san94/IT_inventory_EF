@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fb96c9aa56664d53a60cf5789868df3f" Name="Diagram1" DisplayType="true">
+        <EntityTypeShape EntityType="edm_IT_Inventory.TE_Leltar" Width="2.375" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="edm_IT_Inventory.AD_Users" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="edm_IT_Inventory.TE_Gepek" Width="1.5" PointX="6.125" PointY="1.25" />
+        <EntityTypeShape EntityType="edm_IT_Inventory.TE_Helysegek" Width="1.5" PointX="0.75" PointY="4.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
