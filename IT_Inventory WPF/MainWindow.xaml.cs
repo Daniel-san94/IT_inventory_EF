@@ -53,7 +53,7 @@ namespace IT_Inventory_WPF
         }
 
         /// <summary>
-        /// Itt az if-ben ha Enter billenytű lenyomása történik akor a focus a következő mezőre ugrik.
+        /// Itt az if-ben ha Enter billenytű lenyomása történik akkor a focus a következő mezőre ugrik.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -207,7 +207,6 @@ namespace IT_Inventory_WPF
                 cbCsoport.Text = "";
                 cbStatus.SelectedIndex = -1;
                 cbTipusok.SelectedIndex = -1;
-                //tbTipusok.Text = "";
                 cbGyarto.Text = "";
                 cbModell.Text = "";
                 tbSorozatszam.Text = "";
@@ -314,18 +313,16 @@ namespace IT_Inventory_WPF
         /// <param name="e"></param>
         private void tbSorozatszam_LostFocus(object sender, RoutedEventArgs e)
         {
-            IEnumerable<TE_Gepek> tE_Gepek = cnIT_Inventory.TE_Gepek; //.Where(x => x.Serial_number == tbSorozatszam.Text);
+            IEnumerable<TE_Gepek> tE_Gepek = cnIT_Inventory.TE_Gepek;
 
            
                 var q = (from a in tE_Gepek
                          where a.Serial_number == tbSorozatszam.Text
                          select a).SingleOrDefault();
-            //var k = (from b in cnIT_Inventory.TE_Gepek select b).SingleOrDefault();
             if(q != null)
             {
                 if (tbSorozatszam.Text == q.Serial_number.ToString())
                 {
-                    // var nev = (from y in tE_Gepek select new { y.Computer_name }).ToString();
                     tbNev.Text = q.Computer_name;
                     cbGyarto.Text = q.Device_manufacturer;
                     cbModell.Text = q.Device_model;

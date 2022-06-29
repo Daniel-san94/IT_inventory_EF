@@ -38,41 +38,10 @@
           <Property Name="Sorozatszam" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Leltari_Szam" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'Selfdev_reporting.dbo.AD_Users' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="AD_Users">
-          <Key>
-            <PropertyRef Name="EDMXID" />
-          </Key>
-          <Property Name="EDMXID" Type="int" Nullable="false" />
-          <Property Name="sAMAccountName" Type="nvarchar" MaxLength="4000" />
-          <Property Name="sn" Type="nvarchar" MaxLength="4000" />
-          <Property Name="cn" Type="nvarchar" MaxLength="4000" />
-          <Property Name="givenName" Type="nvarchar" MaxLength="4000" />
-          <Property Name="title" Type="nvarchar" MaxLength="4000" />
-          <Property Name="displayName" Type="nvarchar" MaxLength="4000" />
-          <Property Name="physicalDeliveryOfficeName" Type="nvarchar" MaxLength="4000" />
-          <Property Name="objectGUID" Type="varbinary" MaxLength="4000" />
-          <Property Name="objectSid" Type="varbinary" MaxLength="4000" />
-        </EntityType>
         <EntityContainer Name="Selfdev_reportingModelStoreContainer">
           <EntitySet Name="TE_Gepek" EntityType="Self.TE_Gepek" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TE_Helysegek" EntityType="Self.TE_Helysegek" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TE_Leltar" EntityType="Self.TE_Leltar" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="AD_Users" EntityType="Self.AD_Users" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [AD_Users].[EDMXID] AS [EDMXID], 
-    [AD_Users].[sAMAccountName] AS [sAMAccountName], 
-    [AD_Users].[sn] AS [sn], 
-    [AD_Users].[cn] AS [cn], 
-    [AD_Users].[givenName] AS [givenName], 
-    [AD_Users].[title] AS [title], 
-    [AD_Users].[displayName] AS [displayName], 
-    [AD_Users].[physicalDeliveryOfficeName] AS [physicalDeliveryOfficeName], 
-    [AD_Users].[objectGUID] AS [objectGUID], 
-    [AD_Users].[objectSid] AS [objectSid]
-    FROM [dbo].[AD_Users] AS [AD_Users]</DefiningQuery>
-          </EntitySet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -152,22 +121,6 @@ warning 6002: The table/view 'Selfdev_reporting.dbo.AD_Users' does not have a pr
                 <ScalarProperty Name="Modell" ColumnName="Modell" />
                 <ScalarProperty Name="Sorozatszam" ColumnName="Sorozatszam" />
                 <ScalarProperty Name="Leltari_Szam" ColumnName="Leltari_Szam" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="AD_Users">
-            <EntityTypeMapping TypeName="edm_IT_Inventory.AD_Users">
-              <MappingFragment StoreEntitySet="AD_Users">
-                <ScalarProperty Name="objectSid" ColumnName="objectSid" />
-                <ScalarProperty Name="objectGUID" ColumnName="objectGUID" />
-                <ScalarProperty Name="physicalDeliveryOfficeName" ColumnName="physicalDeliveryOfficeName" />
-                <ScalarProperty Name="displayName" ColumnName="displayName" />
-                <ScalarProperty Name="title" ColumnName="title" />
-                <ScalarProperty Name="givenName" ColumnName="givenName" />
-                <ScalarProperty Name="cn" ColumnName="cn" />
-                <ScalarProperty Name="sn" ColumnName="sn" />
-                <ScalarProperty Name="sAMAccountName" ColumnName="sAMAccountName" />
-                <ScalarProperty Name="EDMXID" ColumnName="EDMXID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
